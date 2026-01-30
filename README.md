@@ -1,56 +1,45 @@
-# FlexiProfiles — Full-Stack AI-Driven Profile Management System
+# FlexiProfiles — AI-Assisted Profile Management System
 
-**FlexiProfiles** is a full-stack web application that automates the generation and management of professional user profiles using **AI-powered content creation** via **OpenAI GPT-3.5**. The system combines a robust **Java Spring Boot** backend with a responsive **HTML/CSS/JavaScript** frontend and stores data in a **PostgreSQL** database, supporting full **CRUD operations**.
-
----
-
-## Features
-- AI-generated professional profile content using **OpenAI GPT-3.5**.
-- Full **CRUD operations** for profile management.
-- RESTful API architecture following **MVC design principles**.
-- Responsive frontend for dynamic user interaction.
-- Data persistence with **PostgreSQL** and **JPA/Hibernate**.
-- Build automation with **Maven** and version control via **Git/GitHub**.
+FlexiProfiles is an AI-assisted profile management system designed and implemented as an end-to-end full-stack application.  
+The system integrates a Spring Boot (Java) backend with RESTful APIs, PostgreSQL for persistent data storage, and OpenAI GPT-3.5 for AI-generated profile content.  
+The frontend is implemented using HTML, CSS, and JavaScript, enabling dynamic user interaction and profile management.
 
 ---
 
-##  Tech Stack
-- **Backend:** Java, Spring Boot, REST APIs, OpenAI API, PostgreSQL, JPA/Hibernate
-- **Frontend:** HTML, CSS, JavaScript
-- **Tools:** Maven, Git, GitHub
-- **Architecture:** MVC, CRUD Operations
+## System Capabilities
+- AI-assisted generation of professional profile content using OpenAI GPT-3.5
+- Full CRUD (Create, Read, Update, Delete) functionality
+- RESTful communication between frontend and backend
+- Persistent data storage using PostgreSQL
+- Clean separation of application layers following MVC principles
 
 ---
 
-##  Getting Started
+## Architecture and Implementation
+The backend is built using Spring Boot (Java) and follows an entity-based package structure to ensure maintainability and scalability.  
+Lombok is used to reduce boilerplate code, and MapStruct is applied for clean and efficient DTO–Entity mapping.  
+Data persistence is handled via JPA/Hibernate with SQL-based interactions through PostgreSQL.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yarabaloum/FlexiProfiles.git
-2. Run the application
-3. Open your browser and navigate to: 
-http://localhost:9999/main
-
-- Ensure Java, Maven, PostgreSQL, and your OpenAI API key are configured properly.
+The frontend is implemented using HTML, CSS, and JavaScript, providing a responsive interface for interacting with the system.
 
 ---
 
-##  How It Works
-1. Users interact with a simple, responsive web interface to input basic profile details or prompts.
-2. The frontend sends a REST API request to the backend server.
-3. The backend processes the request, communicates with the **OpenAI GPT-3.5 API**, and generates tailored profile content.
-4. Generated profiles are stored in **PostgreSQL** via **JPA/Hibernate**.
-5. The backend returns the profile data to the frontend for dynamic display, where users can view, edit, or delete profiles.
+## Technology Stack
+**Backend:** Java, Spring Boot, RESTful APIs, OpenAI GPT-3.5  
+**Database:** PostgreSQL, SQL, JPA / Hibernate  
+**Frontend:** HTML, CSS, JavaScript  
+**Build & Tools:** Maven, Git, GitHub
 
-###  Workflow Diagram
+---
+
+## System Flow
 ```plaintext
 User Input
-     ↓
-Frontend (HTML/CSS/JavaScript)
-     ↓   REST API Call
-Backend (Java Spring Boot)  ↔  OpenAI GPT-3.5 API
-     ↓
+  ↓
+Frontend (HTML / CSS / JavaScript)
+  ↓  RESTful API
+Backend (Spring Boot)  ↔  OpenAI GPT-3.5 API
+  ↓
 PostgreSQL Database
-     ↓
-Dynamic Profile Display (Frontend)
-
+  ↓
+Response to Frontend
