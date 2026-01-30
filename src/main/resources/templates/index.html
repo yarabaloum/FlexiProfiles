@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlexiProfiles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="container">
+
+    <!-- ========== Sidebar ========== -->
+    <aside id="sidebar">
+        <section class="profile-card">
+            <h2>👥 All Profiles</h2>
+            <input type="text" id="searchInput" placeholder="🔍 Search profiles..." oninput="filterProfiles()" class="search-box" />
+            <div id="sortStatus" class="sort-status"></div>
+            <select id="sortFilter" onchange="filterProfiles()" class="sort-dropdown">
+                <option value="">🔽 Sort Profiles</option>
+                <option value="newest">🆕 Newest First</option>
+                <option value="alpha">🔠 A-Z (Alpha)</option>
+                <option value="beta">🔡 Z-A (Beta)</option>
+            </select>
+            <div id="allProfilesContainer"></div>
+        </section>
+    </aside>
+
+    <!-- Theme Toggle Button -->
+    <button id="themeToggleBtn" onclick="toggleDarkMode()">🌓 Toggle Theme</button>
+
+    <!-- ========== Main Panel ========== -->
+    <main id="mainPanel">
+        <!-- AI Profile Generator -->
+        <section class="profile-card">
+            <h4>✨ AI-Powered Profile Generator</h4>
+            <div class="ai-tools">
+                <input type="text" id="aiPrompt" placeholder="e.g. Backend Developer with 3 years experience" />
+                <button onclick="generateProfileAI()">🎯 Generate</button>
+                <div id="aiLoader" class="loader"></div>
+            </div>
+        </section>
+
+        <!-- Profile Form -->
+        <section class="profile-card">
+            <h3>📝 Profile Form</h3>
+            <div class="profile-input-grid">
+                <input type="text" id="Id" placeholder="User ID" />
+                <input type="text" id="name1" placeholder="Name" />
+                <input type="text" id="job1" placeholder="Job" />
+                <input type="text" id="info1" placeholder="Info" />
+                <input type="text" id="phone1" placeholder="Phone" />
+                <input type="text" id="email1" placeholder="Email" />
+                <input type="text" id="location1" placeholder="Location" />
+            </div>
+            <div class="btn-group">
+                <button onclick="save()">💾 Save</button>
+                <button onclick="update()">✏️ Update</button>
+                <button onclick="deleteProfile()">🗑️ Delete</button>
+                <button onclick="clearFormFields()">🧹 Clear Fields</button>
+            </div>
+        </section>
+
+        <!-- Experience Entry -->
+        <section class="profile-card">
+            <h4>Add Experience</h4>
+            <div id="experienceInputs">
+                <div class="experience-entry">
+                    <input type="text" placeholder="Date" class="dateInput" />
+                    <input type="text" placeholder="Experience" class="expInput" />
+                </div>
+            </div>
+            <button onclick="addExperienceField()">➕ Add Experience</button>
+        </section>
+
+        <!-- Info Navigation -->
+        <div class="info-bar">
+            <input type="text" id="IdCopy" placeholder="Enter User ID to View Info" />
+            <button onclick="aboutinfo()">📄 About</button>
+            <button onclick="experinceinfo()">📚 Experience</button>
+            <button onclick="contactinfo()">📞 Contact</button>
+            <button onclick="showAllProfilesPanel()" id="backBtn">🔙 Show All</button>
+        </div>
+
+        <!-- Main Preview Section -->
+        <section id="main" style="display: none;" class="profile-card">
+            <img src="/images/image1.webp" class="profile-img" />
+            <div><strong id="name"></strong></div>
+            <div id="job"></div>
+            <div id="idUser"></div>
+        </section>
+
+        <!-- About / Experience / Contact Tabs -->
+        <section id="About" class="tabs"><div class="profile-card"><h3>ABOUT</h3><div id="info"></div></div></section>
+        <section id="Experinces" class="tabs"><div class="profile-card"><h3>EXPERIENCE</h3><ul id="experienceList"></ul></div></section>
+        <section id="Contact" class="tabs"><div class="profile-card"><h3>CONTACT</h3><ul><li><strong>Phone:</strong> <span id="phone"></span></li><li><strong>Email:</strong> <span id="email"></span></li><li><strong>Location:</strong> <span id="location"></span></li></ul></div></section>
+
+        <!-- AI Modal -->
+        <div id="aiModal" class="modal">
+            <div class="modal-content">
+                <h3>🧠 AI Assistant</h3>
+                <div id="aiResponseContainer" class="ai-response"></div>
+                <textarea id="aiQuestion" placeholder="Ask a question about this profile..."></textarea>
+                <button onclick="sendAIQuestion()">💬 Ask</button>
+                <button onclick="document.getElementById('aiModal').style.display='none'" class="close-btn">❌</button>
+            </div>
+        </div>
+
+        <!-- Results Placeholder -->
+        <div id="result" class="result-box"></div>
+    </main>
+</div>
+<div id="toast" class="toast"></div>
+</body>
+</html>
